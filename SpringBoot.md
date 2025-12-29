@@ -1,3 +1,10 @@
+## How does dependency injection work in Spring Boot internally?
+In Spring boot, the dependency injection is handled by IoC container. 
+
+When the application start spring scan for the classpath for components, creates bean defination, instantiates the require beans, resolve their dependencies, and inject them at the runtime using reflection. 
+
+This allow objects to be loosly coupled and fully managed by the spring container.
+
 # **Annotations**
 
 @PrePersist is used to execute logic automatically before an entity is persisted into the database.
@@ -10,6 +17,7 @@
 | `@PostUpdate`  | After the entity is updated in the database     |
 | `@PreRemove`   | Before the entity is deleted from the database  |
 | `@PostRemove`  | After the entity is deleted from the database   |
+
 
 
 ## Database connection
@@ -25,6 +33,11 @@
 5️⃣ Create *Repository*
 
 6️⃣ Run application 🚀
+
+
+# *Rest API*
+## Best practice to write the REST API
+using proper http methods like get, post, update, etc. using proper http status code, proper error handling. versioning the api. avoiding returning the huge list better to provide query parameters. securing the api by having authentication, authorization
 
 ## *HTTP Status Codes*
 
