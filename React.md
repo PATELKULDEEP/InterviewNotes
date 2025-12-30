@@ -25,7 +25,7 @@ Functional components use hooks for state and lifecycle, while class components 
 ## **What are Hooks? Why introduced?**
 Hooks are functions that let us use state and lifecycle features in functional components. They were introduced to simplify code, avoid complex lifecycle methods, and improve logic reuse.  
 
-# **Why hooks can't be use inside loops or conditions?**
+## **Why hooks can't be use inside loops or conditions?**
 Hooks must be called in the same order on every render, so they can't be used inside loops, conditions or nested functions.
 
 
@@ -76,3 +76,5 @@ Prop drilling is passing props through multiple intermediate components to reach
 # **What is Context API?**
 Context API allows sharing global data like theme or user info without passing props manually at every level.
 
+# **Redux**
+Redux is a state management library that stores application state in a single centralized store and updates it through actions and reducers. It helps manage complex state and avoid prop drilling in large React applications.

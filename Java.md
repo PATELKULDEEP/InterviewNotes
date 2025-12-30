@@ -20,3 +20,8 @@ Java 17 also includes strong encapsulation of internal APIs, better garbage coll
 ## Wrapper Class
 Wrapper class create object of primitive data type as collection work on objects and not primitive data type.
 
+
+### Comparable vs Comparator
+Comparable is usally used inside a class.
+Where as Comparator is called outside the class seprately whenever it's require.
+so, for custom sorting and multiple fields sorting require we use comparator and when just a simple sorting is require we use comparable.
