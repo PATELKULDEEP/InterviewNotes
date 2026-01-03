@@ -30,3 +30,6 @@ Caching stores frequently used data in fast memory to reduce database calls and 
 
 ## CDN
 Content Delivery Network delivers content from servers closest to the user to reduce latency.
+
+
+# Kafka

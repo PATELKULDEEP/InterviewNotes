@@ -35,6 +35,21 @@ This allow objects to be loosly coupled and fully managed by the spring containe
 6️⃣ Run application 🚀
 
 
+
+# **API** 
+
+API Stands for Application Programming Interface. It is a mechanisms that enables two software to communicate with each other. 
+
+There are four different ways API can work
+
+1. **SOAP APIs** : Simple Object Access Protocol. Client and server exchange messages using XML.
+2. **RPC APIs** : Remote Procedure Calls. The client complete the function in server and then server send back the output to the client.
+3. **WebSocket API** : A WebSocket API support two-way communication between client app and server. This happens based on events and very helpfull in applications like chats, live streaming. 
+
+    Initial communication starts with http and then server handshake happens and it upgrade to websocket where the connection will always be connected until anyone disconnect it.
+4. **Rest API** : The client sends requests to the server as data. The server uses this client input to start internal functions and returns output data back to the client.
+
+
 # *Rest API*
 ## Best practice to write the REST API
 using proper http methods like get, post, update, etc. using proper http status code, proper error handling. versioning the api. avoiding returning the huge list better to provide query parameters. securing the api by having authentication, authorization
