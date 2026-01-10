@@ -78,3 +78,7 @@ Context API allows sharing global data like theme or user info without passing p
 
 # **Redux**
 Redux is a state management library that stores application state in a single centralized store and updates it through actions and reducers. It helps manage complex state and avoid prop drilling in large React applications.
+
+
+### How do you support multiple devices
+We use responsive design with CSS media queries, Flexbox, Grid and component-based layout to support mobile, tablet and desktop.

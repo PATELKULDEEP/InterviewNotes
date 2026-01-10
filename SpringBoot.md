@@ -35,6 +35,46 @@ This allow objects to be loosly coupled and fully managed by the spring containe
 6️⃣ Run application 🚀
 
 
+# ORM (Object Relational Mapping)
+
+## JDBC 
+Lowest level, Java API to talk directly to DB using SQL. Too much boilerplate. manual mapping error-pron, hard to maintain. 
+
+And it's mostly used in legacy system. and for very complex queries and batch processing.
+
+*Connection con = DriverManager.getConnection(...);*
+
+*PreparedStatement ps = con.prepareStatement("SELECT * FROM users");*
+
+*ResultSet rs = ps.executeQuery();*
+
+## JPA and Hibernate
+JPA is a specification(interface + rules) defines how ORM should work and Hibernate is the implementation, does actual DB work.
+
+## Spring Data JPA 
+
+Spring Data JPA is wrapper JPA + Hibernate 
+
+**To avoid SQL Injection we use prepared statements in JDBC and in JPA/Hibernate preparedStatement internally use**
+
+
+### How is SQL Injection avoided
+We use Spring Data JPA with parameterized queries and prepared statements. Since query parameters are bound safely by JPA, user input is never directly concatenated into SQL, which prevents SQL injection attacks.
+
+
+### Why JPA over JDBC
+JPA reduces boilerplate code, provides ORM mapping, handles transactions, prevents SQL injection, and improves maintainability. JDBC requires manual SQL, result mapping and error handling, which is error-prone in large application. 
+
+
+### N + 1 Problem
+N+1 occurs when Hibernate executes one query for parent and multiple queries for child entities. It can be solved using join fetch, entity graph, or optimized queries.
+
+
+## @Transactional 
+Transactional annotations open DB transaction, commits if success and Rollbacks on exceptions.
+
+Work only on public method and rollback only for runtime exception
+
 
 # **API** 
 
@@ -53,6 +93,24 @@ There are four different ways API can work
 # *Rest API*
 ## Best practice to write the REST API
 using proper http methods like get, post, update, etc. using proper http status code, proper error handling. versioning the api. avoiding returning the huge list better to provide query parameters. securing the api by having authentication, authorization
+
+
+## **Stages of API Lifecycle:**
+
+Design: Define contracts using tools like OpenAPI (Swagger), including endpoints, methods, and response schemas.
+
+Development: Implement the API while adhering to the defined spec, following version control and code reviews.
+
+Testing: Perform integration and contract tests. Use mocks or stubs to decouple frontend/backend development.
+
+Deployment: Deploy APIs in CI/CD pipelines with canary releases, blue-green deployments, or feature toggles.
+
+Monitoring: Track metrics like latency, uptime, and error rate using tools like Prometheus, Grafana, or Postman Monitor.
+
+Versioning/Maintenance: Introduce changes carefully while maintaining backward compatibility.
+
+Deprecation: Gradually phase out old versions with client communication and support periods.
+
 
 ## *HTTP Status Codes*
 

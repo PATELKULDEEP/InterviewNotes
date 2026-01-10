@@ -100,11 +100,26 @@ Window function perform calculations in rows without grouping them into one row.
 ### ROW_NUMBER()
 Gives  a unique sequence number to each row(no duplicate).
 
+SELECT name, salary,
+ROW_NUMBER() OVER (ORDER BY salary DESC) AS rn
+FROM employee;
+
+
 ### RANK()
 Gives the same rank to tied values and skips the next rank.
 
+SELECT name, salary,
+RANK() OVER (ORDER BY salary DESC) AS rnk
+FROM employee;
+
+
 ### Dense_Rank()
 Gives the same rank to tied values and doesn't skip ranks.
+
+SELECT name, salary,
+DENSE_RANK() OVER (ORDER BY salary DESC) AS drnk
+FROM employee;
+
 
 ## Aggregate Window Functions
 It's like normal aggregates, but they don't reduce rows.

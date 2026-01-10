@@ -17,6 +17,12 @@ Java 17 is a Long-Term Support version of Java that focuses on performance, secu
 
 Java 17 also includes strong encapsulation of internal APIs, better garbage collection performance, and several JVM optimizations that make applications more secure and efficient.
 
+## Java 8 -> Java 17
+1. Upgrade the JDK 
+2. javax.* to jakarta.*
+3. Update Spring Boot and Hibernate
+4. 
+
 ## Wrapper Class
 Wrapper class create object of primitive data type as collection work on objects and not primitive data type.
 
@@ -25,6 +31,10 @@ Wrapper class create object of primitive data type as collection work on objects
 Comparable is usally used inside a class.
 Where as Comparator is called outside the class seprately whenever it's require.
 so, for custom sorting and multiple fields sorting require we use comparator and when just a simple sorting is require we use comparable
+
+
+# **SOLID**
+There is a set of five principles for writing clean, scalable, maintainable object-oriented code.
 
 
 # Thread
@@ -115,3 +125,12 @@ As immutable objects can't change state after creation, so multiple threads can 
 
 
 # Exception Handling
+
+
+
+# Design Pattern
+
+## Creational Design Pattern
+
+### Singleton Design Pattern
+In certain scenarios like logging, configuration handling or managing database connection we need just one instance to avoid redundancy, excessive memory use or inconsistent behaviour. 
