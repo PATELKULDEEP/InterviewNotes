@@ -1,5 +1,17 @@
 # **OOPs Piller**
 
+**Encapsulation** : is about data hiding and binding data with behavior. We achieve it using private fields and public getters/setters.
+For example, in an Employee class, fields like id, name, and salary are private and accessed via getters/setters to control validation.  
+
+**Inheritance** : allows code reuse by extending a parent class.
+For example, a base User class can be extended by Employee and Customer to reuse common fields like id and email.
+
+**Polymorphism** : allows the same method to behave differently based on the object.
+Example: calculateSalary() implemented differently for PermanentEmployee and ContractEmployee.
+
+**Abstraction** : hides implementation details and exposes only behavior.
+We achieve this using abstract classes and interfaces. Abstract classes can have both abstract and concrete methods, while interfaces provide full abstraction (with default/static methods since Java 8).
+
 ## Class 
 A class is a blueprint or template that define properties(variables) and behaviors(methods).
 
@@ -64,7 +76,6 @@ Runnable is used to execute task in a separate thread but does not return and ca
 
 ## Callable
 Callable is used to execute task that returns a result and can throw checked exception. 
-
 Callable work with ExecutorService and Future.
 
 
@@ -82,7 +93,7 @@ Executor framework helps to manage multiple thread easily without creating and h
 | ExecutorService          | Manages lifecycle                     |
 | ScheduledExecutorService | Runs tasks after delay / periodically |
 
-**Future** is a blocking way to achieve async results.
+**Future** is a blocking way to achieve async results.  
 **CompletableFuture** is a non-blocking asynchronous processing with better error handling.
 
 Future Interface: The Future interface represents the result of an asynchronous computation. You can use it to:
@@ -134,3 +145,49 @@ As immutable objects can't change state after creation, so multiple threads can 
 
 ### Singleton Design Pattern
 In certain scenarios like logging, configuration handling or managing database connection we need just one instance to avoid redundancy, excessive memory use or inconsistent behaviour. 
+
+### Factory Pattern
+
+
+### Abstract Factory
+
+
+### Builder Pattern
+
+
+### Prototype Pattern
+
+
+
+| Feature               | HashMap    | LinkedHashMap | TreeMap        | Hashtable    | **SynchronizedMap**        | ConcurrentHashMap       | EnumMap        |
+| --------------------- | ---------- | ------------- | -------------- | ------------ | -------------------------- | ----------------------- | -------------- |
+| Thread-safe           | ❌ No       | ❌ No          | ❌ No           | ✅ Yes        | ✅ Yes                      | ✅ Yes                   | ❌ No           |
+| Synchronization level | None       | None          | None           | Method-level | **Method-level (wrapper)** | **Bucket / Node-level** | None           |
+| Performance           | ⭐⭐⭐        | ⭐⭐            | ⭐              | ❌ Slow       | ❌ Slow                     | ⭐⭐⭐⭐                    | ⭐⭐⭐⭐           |
+| Allows `null` key     | ✅ One      | ✅ One         | ❌ No           | ❌ No         | ❌ No*                      | ❌ No                    | ❌ No           |
+| Allows `null` values  | ✅ Yes      | ✅ Yes         | ❌ No           | ❌ No         | ❌ No*                      | ❌ No                    | ❌ No           |
+| Maintains order       | ❌ No       | ✅ Yes         | ✅ Sorted       | ❌ No         | ❌ No                       | ❌ No                    | ✅ Enum order   |
+| Sorting support       | ❌ No       | ❌ No          | ✅ Comparator   | ❌ No         | ❌ No                       | ❌ No                    | ✅ Enum ordinal |
+| Fail-fast iterator    | ✅ Yes      | ✅ Yes         | ✅ Yes          | ❌ No         | ❌ No                       | ❌ No                    | ✅ Yes          |
+| Legacy class          | ❌ No       | ❌ No          | ❌ No           | ✅ Yes        | ❌ No                       | ❌ No                    | ❌ No           |
+| Introduced in         | Java 1.2   | Java 1.4      | Java 1.2       | Java 1.0     | Java 1.2                   | Java 1.5                | Java 5         |
+| Underlying DS         | Hash table | Hash + DLL    | Red-Black Tree | Hash table   | Depends on Map             | Hash table              | Array          |
+
+
+
+
+## Eager v/s Lazy
+
+**Eager** : When we are doing things before it require like database connections if application is going to use later or not we have started.
+Resource is utilizing here which can be waste but there will be no delay if require in future. 
+
+**Lazy** : When the task require then only doing like connecting the database when the client is going to perform database connection, so resource is saving here but it's delaying
+
+
+### How does equals() and hashCode() work internally? What happens if they’re not overridden properly?
+hashCode() is used to identify the bucket in hash-based collections, and equals() is used to compare actual objects.  
+Contract:  
+If two objects are equal, they must have the same hashCode.  
+Same hashCode does not guarantee equality.
+
+If not overridden properly, collections like HashMap may store duplicate keys or fail to retrieve objects correctly.

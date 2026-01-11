@@ -58,11 +58,11 @@ Return every possible combination of rows from both tables.
 A table is joined with itself to compare rows within the same table.
 
 
-# Stored Procedure
-Stored procedure keeps the pre-compiled sql statements in the database, that improve performance.
+## Stored Procedure
+Stored procedure keeps the pre-compiled sql statements in the database, that improve performance and security.
 
-# View 
-A view is a virtual table that stores the query logic. 
+## View 
+A view is a virtual table that stores the query logic. It doesn't store data itself, but shows data from one or more tables.
 
 ### Materialized View
 Materialized view stores the result of the query.
@@ -142,5 +142,56 @@ It's a security attack where malicious SQL code is inserted through user input t
 
 
 
+## Partition By
+Divides rows into groups (like GROUP By but keeps rows).
+
+## Order By
+Defines row order inside the window.
+
+## Rows / Range
+Controls how many rows are included in the window frame.
 
 
+
+
+
+
+# Quries
+
+## Update Query 
+UPDATE employee
+SET name = 'abc'
+WHERE id = 123;
+
+UPDATE table_name
+SET column1 = value1, 
+    column2 = value2, 
+    column3 = value3
+WHERE condition;
+
+## Create Table
+CREATE TABLE Products (
+    ProductID int PRIMARY KEY,
+    ProductName varchar(50),
+    Price decimal(10, 2),
+    StockQuantity int
+);
+
+
+## Insert 
+INSERT INTO Products (ProductID, ProductName, Price, StockQuantity)
+VALUES (1, 'Laptop', 999.99, 10),
+       (2, 'Mouse', 25.00, 50);
+
+
+## Delete 
+DELETE FROM Products 
+WHERE ProductID = 2;
+
+
+### Highest-scoring subject for each student
+(like Krishna -> math 98, Alok -> eng 73)
+
+```sql 
+SELECT s.name, s.subject, s.mark FROM std s WHERE s.mark = (SELECT MAX(mark) FROM std WHERE name = s.name);
+```

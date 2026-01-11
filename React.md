@@ -1,6 +1,9 @@
 # **What is React and why is it used?**
 React is a JavaScript library used to build fast, interactive user interfaces. it uses a component-based architecture and a virtual DOM to efficiently update only the changed parts of the UI.
 
+JSX is not understood by browsers directly.
+It is converted (by tools like Babel) into plain JavaScript:
+
 ## **What is Virtual DOM?** 
 Virtual DOM is a lightweight copy of the real DOM. React compares the previous and current Virtual DOM using diffing algorithm and updates only the changed nodes in the real DOM, improving performance.
 

@@ -42,11 +42,11 @@ Lowest level, Java API to talk directly to DB using SQL. Too much boilerplate. m
 
 And it's mostly used in legacy system. and for very complex queries and batch processing.
 
-*Connection con = DriverManager.getConnection(...);*
-
-*PreparedStatement ps = con.prepareStatement("SELECT * FROM users");*
-
-*ResultSet rs = ps.executeQuery();*
+```java
+Connection con = DriverManager.getConnection(...);
+PreparedStatement ps = con.prepareStatement("SELECT * FROM users");
+ResultSet rs = ps.executeQuery();
+```
 
 ## JPA and Hibernate
 JPA is a specification(interface + rules) defines how ORM should work and Hibernate is the implementation, does actual DB work.
@@ -112,6 +112,16 @@ Versioning/Maintenance: Introduce changes carefully while maintaining backward c
 Deprecation: Gradually phase out old versions with client communication and support periods.
 
 
+### If the Database configuration is in another file how you will configure it? 
+
+
+### How you will configure the multiple DB in spring boot or rest api
+
+
+### How you will handle the exception in rest api or spring boot
+
+
+
 ## *HTTP Status Codes*
 
 ### *1️⃣ 2xx — Success*
@@ -159,3 +169,23 @@ Deprecation: Gradually phase out old versions with client communication and supp
 | *502 Bad Gateway*           | Invalid response from another server | Microservice call failed                |
 | *503 Service Unavailable*   | Server temporarily down              | Maintenance, overload                   |
 | *504 Gateway Timeout*       | Upstream service didn't respond      | DB or microservice taking too long      |
+
+
+
+
+## Eager v/s Lazy
+
+Eager : Like beans are created before we require that. 
+
+Lazy : We can use @Lazy to create it only when it's first call.
+
+```java
+@Component
+@Lazy
+public class ReportService {
+
+    public ReportService() {
+        System.out.println("ReportService loaded");
+    }
+}
+```
